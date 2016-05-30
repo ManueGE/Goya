@@ -10,9 +10,11 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    var alterStyle = false
+    @IBOutlet weak var label: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
     }
 
     override func didReceiveMemoryWarning() {
@@ -20,6 +22,10 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
+    @IBAction func toggleStyle(sender: UIButton) {
+        alterStyle = !alterStyle
+        let name = alterStyle ? "alterStyle" : "style"
+        label.gy_styleName = name
+    }
 }
 
