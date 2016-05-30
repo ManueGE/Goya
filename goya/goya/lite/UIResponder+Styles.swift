@@ -9,8 +9,8 @@
 import UIKit
 import ObjectiveC
 
-private var StyleKey = "com.manuege.uiresponderstylekey"
-private var StyleNameKey = "com.manuege.uiresponderstylenamekey"
+private var StyleKey: UInt8 = 0
+private var StyleNameKey: UInt8 = 0
 
 extension UIResponder {
     
@@ -39,12 +39,18 @@ extension UIResponder {
         }
         
         set {
-            if let styleName = newValue,
-                style = registeredStyle(withName: styleName) {
-                self.gy_style = style
+            objc_setAssociatedObject(self, &StyleKey, newValue, .OBJC_ASSOCIATION_RETAIN)
+            
+            guard let styleName = newValue else {
+                return
             }
             
-            objc_setAssociatedObject(self, &StyleKey, newValue, .OBJC_ASSOCIATION_RETAIN)
+            guard let style = registeredStyle(withName: styleName) else {
+                assert(false, "No registered style with name \(styleName)")
+                return
+            }
+            
+            self.gy_style = style
         }
     }
 }

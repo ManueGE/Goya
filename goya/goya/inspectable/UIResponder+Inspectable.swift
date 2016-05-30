@@ -12,7 +12,8 @@ import UIKit
  This extenstion is provided to allow the *IBInspectable* feature
  */
 extension UIResponder {
-    
+
+    /// set the style name. This should only be used from interface builder In other cases, pleae use `gy_styleName`
     @IBInspectable public var styleName: String? {
         get {
             return self.gy_styleName

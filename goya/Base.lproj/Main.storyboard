@@ -8,7 +8,7 @@
         <!--View Controller-->
         <scene sceneID="Ffj-Xc-shM">
             <objects>
-                <viewController id="AbO-R1-do1" customClass="ViewController" customModule="MGEStyles_Swift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="AbO-R1-do1" customClass="ViewController" customModule="goya" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Txk-05-nBq"/>
                         <viewControllerLayoutGuide type="bottom" id="WzI-31-7tL"/>
