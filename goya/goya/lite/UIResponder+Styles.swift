@@ -39,12 +39,17 @@ extension UIResponder {
         }
         
         set {
-            if let styleName = newValue,
-                style = registeredStyle(withName: styleName) {
-                self.gy_style = style
+            objc_setAssociatedObject(self, &StyleKey, newValue, .OBJC_ASSOCIATION_RETAIN)
+            
+            guard let styleName = newValue else {
+                return
             }
             
-            objc_setAssociatedObject(self, &StyleKey, newValue, .OBJC_ASSOCIATION_RETAIN)
+            guard let style = registeredStyle(withName: styleName) else {
+                assert(false, "No registered style with name \(styleName)")
+            }
+            
+            self.gy_style = style
         }
     }
 }
