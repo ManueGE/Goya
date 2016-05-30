@@ -10,7 +10,7 @@ As an iOS developer, I feel very often frustrated with how difficult is to set c
 **Goya** is provided in two flavours, **Default** and **Lite**. The only difference is that the default version add an inspectable attribute in the interface builder, and lite version doesn't. For more details, please go to the [applying styles section](#applying_styles)
 
 ## Installation
-### Cocoapods
+### CocoaPods
 Add the following to your `Podfile`:
 
 ```
