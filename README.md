@@ -2,7 +2,7 @@
 An easy way to set custom styles to any `UIResponder` from the Interface Builder written in swift.
 
 ## Note
-If you want for the **Objective-C** version of this library, you are looking for [MGEStyles](http://github.com/ManueGE/MGEStyles).
+If you need the **Objective-C** version of this library, you are looking for [MGEStyles](http://github.com/ManueGE/MGEStyles).
 
 ## Summary
 As an iOS developer, I feel very often frustrated with how difficult is to set consistent styles to my views in the Xcode Interface Builder. If you think in a `UILabel`, you can use the same style (font, color and size) for a set of labels in different `UIViewController`. If, some time later, the design changes you'll have to change the properties of all these labels one by one, which is a tedious work. I try to solve this issue by developing `Goya`. This library, inspired by the android **styles** system, simplify this task, giving you the chance of define a totally custom styles in one single place and using it all over your project, using the Inerface Builder or by code. 
