@@ -105,13 +105,13 @@ public class Style<Type: UIResponder>: NSObject, AbstractStyle {
     }
     
     /**
-     Apply the style into the given object. If the style is not applicable in the object, it will launch a fatal error
+     Apply the style into the given object. If the style is not applicable in the object, it will assert
      - parameter object: the object to apply the style in
      */
     public func apply(object: AnyObject) {
         guard let responder = object as? Type else {
             let name = self.registerName ?? self.description
-            fatalError("Style \"\(name)\" cannot be applied to \(object)")
+            assert(false, "Style \"\(name)\" cannot be applied to \(object)")
         }
         
         apply(responder)
