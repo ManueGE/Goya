@@ -47,6 +47,7 @@ extension UIResponder {
             
             guard let style = registeredStyle(withName: styleName) else {
                 assert(false, "No registered style with name \(styleName)")
+                return
             }
             
             self.gy_style = style

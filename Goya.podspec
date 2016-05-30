@@ -19,7 +19,6 @@ Pod::Spec.new do |spec|
 
   spec.requires_arc = true
   spec.framework = "UIKit"
-  spec.source_files  = "alamofire_activity_logger/Request+ActivityLogger.swift"
 
   # Subspecs
   spec.default_subspec = 'Inspectable'
