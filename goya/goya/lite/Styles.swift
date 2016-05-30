@@ -112,6 +112,7 @@ public class Style<Type: UIResponder>: NSObject, AbstractStyle {
         guard let responder = object as? Type else {
             let name = self.registerName ?? self.description
             assert(false, "Style \"\(name)\" cannot be applied to \(object)")
+            return
         }
         
         apply(responder)
