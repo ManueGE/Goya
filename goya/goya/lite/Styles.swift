@@ -8,12 +8,10 @@
 
 import UIKit
 
-private var RegisteredStyles: [String: AbstractStyle] = [:]
+// MARK: Registered styles
 
-public protocol AbstractStyle: AnyObject {
-    var registerName: String? { get set }
-    func apply(object: AnyObject)
-}
+/// All the styles registered
+private var RegisteredStyles: [String: AbstractStyle] = [:]
 
 /**
  - returns: the registered style with the given name, nil if does not exist any registered style for this name
@@ -23,6 +21,20 @@ public func registeredStyle(withName name: String) -> AbstractStyle? {
         return nil
     }
     return style
+}
+
+/**
+ The common ancestor to all the generic styles
+ */
+public protocol AbstractStyle: AnyObject {
+    ///The name used to register the style
+    var registerName: String? { get set }
+    
+    /**
+     Apply the style into the given object.
+     - parameter object: the object to apply the style in
+     */
+    func apply(object: AnyObject)
 }
 
 public extension AbstractStyle {
@@ -38,7 +50,7 @@ public extension AbstractStyle {
     }
     
     /**
-     Unregister the style 
+     Unregister the style if already registered
      */
     public func unregister() {
         guard let name = self.registerName else {
@@ -59,29 +71,32 @@ public extension AbstractStyle {
     
 }
 
-public class Style<T: UIResponder>: NSObject, AbstractStyle {
+/**
+ AbstractStyle implementation aplicable to `UIResponder` subclasses
+ */
+public class Style<Type: UIResponder>: NSObject, AbstractStyle {
     
     ///If set, instances will call the `configurationBlock`of it parents before call its own block
     public let parent: AbstractStyle?
     
-    ///the block used to configure the items when the style is applied
-    public let configurator: (T)->Void
+    ///The block used to configure the items when the style is applied
+    public let configurator: (Type)->Void
     
+    ///The name used to register the style
     public var registerName: String?
     
     // MARK: Init
-    public init(parent: AbstractStyle? = nil, configurator: (T)->Void) {
+    public init(parent: AbstractStyle? = nil, configurator: (Type)->Void) {
         self.configurator = configurator
         self.parent = parent
         super.init()
     }
     
-    // MARK: Apply
     /**
      Apply the style into the given responder
      - parameter responder: the object to apply the style in
      */
-    public func apply(responder: T) {
+    public func apply(responder: Type) {
         if let parent = parent {
             parent.apply(responder)
         }
@@ -94,7 +109,7 @@ public class Style<T: UIResponder>: NSObject, AbstractStyle {
      - parameter object: the object to apply the style in
      */
     public func apply(object: AnyObject) {
-        guard let responder = object as? T else {
+        guard let responder = object as? Type else {
             let name = self.registerName ?? self.description
             fatalError("Style \"\(name)\" cannot be applied to \(object)")
         }
