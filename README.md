@@ -93,7 +93,7 @@ If are using the **Lite** flavour or your version of Xcode doesn't supoort **IBI
 ![](https://github.com/ManueGE/Goya/blob/master/readme_imgs/goya_manually.png?raw=true)
 
 #### By Code:
-`Goya` provides a category which allow apply a style to any `UIResponder`. If you want to apply the **LabelTitleStyle** to a label, you can do it by typing:
+`Goya` provides a category which allow apply a style to any `UIResponder`. If you want to apply the registered **style** to a label, you can do it by typing:
 
 ````
 let label = UILabel()
