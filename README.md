@@ -88,7 +88,7 @@ When you use the **Default** flavour, a new property appears in the attribute in
 
 ![](https://github.com/ManueGE/Goya/blob/master/readme_imgs/goya_inspector.png?raw=true)
 
-If are using the **Lite** flavour or your version of Xcode doesn't supoort **IBInspectables** you can achieve the same result by addign a new attribute in the **User defined runtime attributes** section. The name must be **styleName**, the type must be **String** and the Value must be the key of your registered style:
+If are using the **Lite** flavour or your version of Xcode doesn't supoort **IBInspectables** you can achieve the same result by addign a new attribute in the **User defined runtime attributes** section. The name must be **gy_styleName**, the type must be **String** and the Value must be the key of your registered style:
 
 ![](https://github.com/ManueGE/Goya/blob/master/readme_imgs/goya_manually.png?raw=true)
 
