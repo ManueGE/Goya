@@ -34,7 +34,7 @@ public protocol AbstractStyle: AnyObject {
      Apply the style into the given object.
      - parameter object: the object to apply the style in
      */
-    func apply(object: AnyObject)
+    func apply(toObject object: AnyObject)
 }
 
 public extension AbstractStyle {
@@ -44,7 +44,7 @@ public extension AbstractStyle {
      Register the style with the given key
      - parameter name: the name to register the style
      */
-    public func register(name: String) {
+    public func register(withName name: String) {
         self.registerName = name
         RegisteredStyles[name] = self
     }
@@ -96,9 +96,9 @@ public class Style<Type: UIResponder>: NSObject, AbstractStyle {
      Apply the style into the given responder
      - parameter responder: the object to apply the style in
      */
-    public func apply(responder: Type) {
+    public func apply(toObject responder: Type) {
         if let parent = parent {
-            parent.apply(responder)
+            parent.apply(toObject: responder)
         }
         
         configurator(responder)
@@ -108,13 +108,13 @@ public class Style<Type: UIResponder>: NSObject, AbstractStyle {
      Apply the style into the given object. If the style is not applicable in the object, it will assert
      - parameter object: the object to apply the style in
      */
-    public func apply(object: AnyObject) {
+    public func apply(toObject object: AnyObject) {
         guard let responder = object as? Type else {
             let name = self.registerName ?? self.description
             assert(false, "Style \"\(name)\" cannot be applied to \(object)")
             return
         }
         
-        apply(responder)
+        apply(toObject: responder)
     }
 }
