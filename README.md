@@ -46,7 +46,7 @@ The library works in 3 steps:
 ### Creating styles:
 In this library, the styles are `Style` objects. Each style will have a configuration block, which will tell the library what to do with the `UIResponder`. For example, if you want to create a style for `UILabels` you would do:
 
-````
+````swift
 let baseStyle = Style<UILabel> { (label) in
         label.font = UIFont.boldSystemFontOfSize(16)
         label.numberOfLines = 0
@@ -55,7 +55,7 @@ let baseStyle = Style<UILabel> { (label) in
 
 `Goya` allows inheritance. When a `Style` has a parent, the parent's configuration block is executed before the own block. As an example, we can create a child for the previous style with this method:
 
-````
+````swift
 let titleStyle = Style<UILabel>(parent: baseStyle) { (label) in
     label.textColor = .redColor()
     label.textAlignment = .Center
@@ -66,13 +66,13 @@ let titleStyle = Style<UILabel>(parent: baseStyle) { (label) in
 
 Registering a `Style` is very easy. You just have to call the following method:
 
-````
+````swift
 public func register(name: String)
 ````
 
 For example, if we want to register the defined **titleStyle** we'll do:
 
-````
+````swift
 titleStyle.register("style")
 ````
 
@@ -95,14 +95,14 @@ If are using the **Lite** flavour or your version of Xcode doesn't supoort **IBI
 #### By Code:
 `Goya` provides a category which allow apply a style to any `UIResponder`. If you want to apply the registered **style** to a label, you can do it by typing:
 
-````
+````swift
 let label = UILabel()
 label.gy_styleName = "style"
 ````
 
 You can also apply a no registered style:
 
-````
+````swift
 let label = UILabel()
 let titleStyle = Style<UILabel>(parent: baseStyle) { (label) in
     label.textColor = .redColor()
