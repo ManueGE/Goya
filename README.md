@@ -23,6 +23,12 @@ or if you prefer the **Lite** flavour:
 pod 'Goya/Lite'
 ```
 
+If you want the **Swift 2** version, you can use the old version of the library:
+
+```
+pod 'Goya', '~> 1.0'
+```
+
 Then run `$ pod install`.
 
 If you don't have CocoaPods installed or integrated into your project, you can learn how to do so [here](http://cocoapods.org).
@@ -48,7 +54,7 @@ In this library, the styles are `Style` objects. Each style will have a configur
 
 ````swift
 let baseStyle = Style<UILabel> { (label) in
-        label.font = UIFont.boldSystemFontOfSize(16)
+        label.font = .boldSystemFont(ofSize: 50)
         label.numberOfLines = 0
 }
 ````
@@ -57,7 +63,7 @@ let baseStyle = Style<UILabel> { (label) in
 
 ````swift
 let titleStyle = Style<UILabel>(parent: baseStyle) { (label) in
-    label.textColor = .redColor()
+    label.textColor = .red
     label.textAlignment = .Center
 }
 ````
@@ -105,7 +111,7 @@ You can also apply a no registered style:
 ````swift
 let label = UILabel()
 let titleStyle = Style<UILabel>(parent: baseStyle) { (label) in
-    label.textColor = .redColor()
+    label.textColor = .red
     label.textAlignment = .Center
 }
 label.gy_style = titleStyle

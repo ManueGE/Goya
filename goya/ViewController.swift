@@ -22,7 +22,7 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    @IBAction func toggleStyle(sender: UIButton) {
+    @IBAction func toggleStyle(_ sender: UIButton) {
         alterStyle = !alterStyle
         let name = alterStyle ? "alterStyle" : "style"
         label.gy_styleName = name

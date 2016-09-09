@@ -1,8 +1,8 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "Goya"
-  spec.version      = "1.0.0"
-  spec.summary      = "An easy way to set styles to any UIResponder from the Interface Builder written in Swift"
+  spec.version      = "2.0.0"
+  spec.summary      = "An easy way to set styles to any UIResponder from the Interface Builder. Written in Swift"
   spec.description  = <<-DESC
   Customize the appearance and any other property of any UIResponder (views, view controllers, labels, buttons)
                        just by setting a style string in the Interface Builder.
