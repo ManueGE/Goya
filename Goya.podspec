@@ -31,4 +31,6 @@ Pod::Spec.new do |spec|
     inspectable.dependency "Goya/Lite"
     inspectable.source_files = "goya/goya/inspectable/*.{swift}"
   end
+
+  spec.pod_target_xcconfig = { 'SWIFT_VERSION' => '3.0' }
 end
