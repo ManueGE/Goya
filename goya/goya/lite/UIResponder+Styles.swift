@@ -22,7 +22,7 @@ extension UIResponder {
         
         set {
             if let style = newValue {
-                style.apply(self)
+                style.apply(toObject: self)
             }
             objc_setAssociatedObject(self, &StyleKey, newValue, .OBJC_ASSOCIATION_RETAIN)
         }

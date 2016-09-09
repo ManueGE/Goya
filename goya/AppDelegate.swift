@@ -13,29 +13,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     
-    
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]? = nil) -> Bool {
         
         let parent = Style { (view: UIView) -> Void in
-            view.backgroundColor = UIColor.blackColor()
+            view.backgroundColor = .black
         }
-        parent.register("parent")
+        parent.register(withName: "parent")
         
         Style(parent: parent) { (label: UILabel) -> Void in
-            label.textColor = UIColor.redColor()
-            label.font = UIFont.systemFontOfSize(50)
-            }.register("style")
+            label.textColor = .red
+            label.font = .systemFont(ofSize: 50)
+            }.register(withName: "style")
         
         Style { (label: UILabel) -> Void in
-            label.backgroundColor = UIColor.clearColor()
-            label.textColor = UIColor.blueColor()
-            label.font = UIFont.systemFontOfSize(50)
-            }.register("alterStyle")
+            label.backgroundColor = .clear
+            label.textColor = .blue
+            label.font = .boldSystemFont(ofSize: 50)
+            }.register(withName: "alterStyle")
         
         
         Style(parent: parent) { (button: UIButton) -> Void in
-            button.titleLabel?.font = UIFont.systemFontOfSize(50)
-            }.register("button")
+            button.titleLabel?.font = .systemFont(ofSize: 50)
+            }.register(withName: "button")
         
         return true
     }
