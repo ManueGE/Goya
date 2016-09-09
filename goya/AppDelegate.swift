@@ -13,22 +13,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     
-    
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]? = nil) -> Bool {
         
         let parent = Style { (view: UIView) -> Void in
-            view.backgroundColor = .black()
+            view.backgroundColor = .black
         }
         parent.register(withName: "parent")
         
         Style(parent: parent) { (label: UILabel) -> Void in
-            label.textColor = .red()
+            label.textColor = .red
             label.font = .systemFont(ofSize: 50)
             }.register(withName: "style")
         
         Style { (label: UILabel) -> Void in
-            label.backgroundColor = .clear()
-            label.textColor = .blue()
+            label.backgroundColor = .clear
+            label.textColor = .blue
             label.font = .boldSystemFont(ofSize: 50)
             }.register(withName: "alterStyle")
         

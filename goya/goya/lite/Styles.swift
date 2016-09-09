@@ -86,7 +86,7 @@ public class Style<Type: UIResponder>: NSObject, AbstractStyle {
     public var registerName: String?
     
     // MARK: Init
-    public init(parent: AbstractStyle? = nil, configurator: (Type)->Void) {
+    public init(parent: AbstractStyle? = nil, configurator: @escaping (Type)->Void) {
         self.configurator = configurator
         self.parent = parent
         super.init()
